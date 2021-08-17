@@ -1,7 +1,7 @@
 # 华南理工大学每日自动报平安
 
 ## 使用方法
-1. 首先你必须手动填报并他提交过一次。
+1. 首先你必须手动填报并提交过一次。
 2. clone 本项目：`git clone https://github.com/songquanpeng/daily-report`, 
 服务器访问不了 Github 请使用：`git clone https://gitee.com/songquanpeng/daily-report` 。
 3. 安装依赖（安装失败请见下面 Q&A）：
@@ -22,7 +22,7 @@
 7. 一切 Okay，程序将在每日 8 点自动帮你报平安。
 
 ## Q&A
-### ~~什么是快乐星球？~~什么是消息推送 URL？
+### 什么是消息推送 URL？
 简而言之，就是一个 URL，在其后添加适当参数并发送 GET 请求访问后你将能收到消息。
 
 你有两个选择：
