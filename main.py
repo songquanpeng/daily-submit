@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import asyncio
 import json
 import os
@@ -14,7 +16,12 @@ def send_msg(msg, push_url):
     else:
         if push_url.endswith("/"):
             push_url = push_url.rstrip("/")
-        requests.get("{}/?title=每日健康填报&description={}".format(push_url, msg))
+        if "ftqq" in push_url:
+            param = "desp"
+        else:
+            param = "description"
+
+        requests.get("{}?title=每日健康填报&{}={}".format(push_url, param, msg))
 
 
 async def report_health(username, password, debug=False):
