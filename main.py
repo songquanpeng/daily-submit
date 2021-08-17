@@ -44,9 +44,14 @@ async def report_health(username, password, debug=False):
 
 
 def generate_cfg(cfg_path):
-    username = input("Please input your student id: ")
-    password = input("Please input your password: ")
-    message_push_url = input("Please input your message push url (optional): ")
+    if os.environ['PASSWORD']:
+        username = os.environ['ID']
+        password = os.environ['PASSWORD']
+        message_push_url = os.environ['PUSH_URL']
+    else:
+        username = input("Please input your student id: ")
+        password = input("Please input your password: ")
+        message_push_url = input("Please input your message push url (optional): ")
     cfg = {
         "username": username,
         "password": password,
