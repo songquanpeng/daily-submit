@@ -27,9 +27,9 @@ def send_msg(msg, push_url):
 async def report_health(username, password, debug=False):
     async with async_playwright() as p:
         if debug:
-            browser = await p.chromium.launch(headless=False, slow_mo=50)
+            browser = await p.webkit.launch(headless=False, slow_mo=50)
         else:
-            browser = await p.chromium.launch()
+            browser = await p.webkit.launch()
         page = await browser.new_page()
         await page.goto(target_url)
         await page.fill("#un", username)
