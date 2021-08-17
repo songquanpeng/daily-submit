@@ -1,17 +1,6 @@
 # 华南理工大学每日自动报平安
 
 ## 使用方法
-### 使用 Github Action
-1. 首先你必须手动填报并提交过一次。
-2. fork 本项目。
-3. 前往你的项目的 `Setting` 页面，点击 `Secrets`，之后点击右上角的 `New repository secret`，添加以下项：
-    1. `ID`: 你的 ID，
-    2. `PASSWORD`: 统一认证密码，
-    3. `PUSH_URL`: 消息推送 URL，该项可选，用于向你推送运行结果，详见下面 Q&A 第一项。
-4. 前往 `Actions` 页面，启用 workflow。
-5. 一切 Okay，Github Action 将在每日 8 点自动帮你报平安，你也可以手动出发 workflow 来检查是否配置成功。
-
-### 在自己的服务器上部署
 1. 首先你必须手动填报并提交过一次。
 2. clone 本项目：`git clone https://github.com/songquanpeng/daily-report`, 
 服务器访问不了 Github 请使用：`git clone https://gitee.com/songquanpeng/daily-report` 。
