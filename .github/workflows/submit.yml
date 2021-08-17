@@ -1,4 +1,4 @@
-name: heallth_report
+name: health_report
 
 on:
   schedule:
@@ -22,15 +22,15 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: '3.8'
-    - name: update readme
-        env:
-          ID: ${{ secrets.ID }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          PUSH_URL: ${{ secrets.PUSH_URL }}
-        run: |
-          sudo timedatectl set-timezone "Asia/Shanghai"
-          pip install playwright --user
-          pip install requests
-          python -m playwright install-deps
-          python -m playwright install webkit
-          python ./main.py
+    - name: setup & report
+      env:
+        ID: ${{ secrets.ID }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        PUSH_URL: ${{ secrets.PUSH_URL }}
+      run: |
+        sudo timedatectl set-timezone "Asia/Shanghai"
+        pip install playwright --user
+        pip install requests
+        python -m playwright install-deps
+        python -m playwright install webkit
+        python ./main.py
