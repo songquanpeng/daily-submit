@@ -17,8 +17,10 @@
     2. 统一认证密码，
     3. 消息推送 URL，该项可选，用于向你推送运行结果，详见下面 Q&A 第一项。
 6. 设置 crontab 定时任务：
+    1. 首先我们需要确定 Python 解释器的位置，终端执行命令 `which python`，输出可能为：`/home/user/anaconda3/bin/python`，
     1. 输入 `crontab -e`，
-    2. 输入 `0 8 * * * cd /path/to/daily-report && ./main.py`，注意，这里的路径需要你自己补全，请使用绝对路径。
+    2. 输入 `0 8 * * * cd /path/to/daily-report && /home/user/anaconda3/bin/python ./main.py`，
+    注意，这里的项目路径和 Python 解释器的路径需要你根据你的情况进行修改，请使用绝对路径。
 7. 一切 Okay，程序将在每日 8 点自动帮你报平安。
 
 ## Q&A
@@ -35,3 +37,8 @@
 
 ### 依赖安装失败？报错：`cannot install dependencies for this linux distribution`
 额，playwright 不支持你的发行版，目前无解。
+
+### 为什么我手动执行可以成功运行，但是脚本并没有定时运行？
+原因极有可能是 Python 环境的问题，你在终端运行的 Python 和 crontab 执行时用到的 Python 可能并不一样。
+
+所以你需要用 `which python` 来找出你目前环境中的 Python，并在 crontab 的命令中指定使用该 Python 解释器来执行脚本。
