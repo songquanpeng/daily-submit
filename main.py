@@ -21,7 +21,7 @@ def send_msg(msg, push_url):
         else:
             param = "description"
 
-        requests.get("{}?title=每日健康填报&{}={}".format(push_url, param, msg))
+        requests.get("{}?title=每日健康填报&{}={}".format(push_url, param, msg), verify=False)
 
 
 async def report_health(username, password, debug=False):
@@ -35,7 +35,7 @@ async def report_health(username, password, debug=False):
         await page.fill("#un", username)
         await page.fill("#pd", password)
         await page.click("#index_login_btn > input")
-        await page.click("#container > div.main > form > div.btn_add")
+        await page.click("#container > div.main > form > button")
         await page.click(
             "body > div.custom-classname > div.weui-dialog.weui-animate-fade-in > div.weui-dialog__ft > a.weui-dialog__btn.weui-dialog__btn_primary")
         message = await page.text_content("#weuiDialogSuc > div.weui-dialog > div.weui-dialog__bd")
